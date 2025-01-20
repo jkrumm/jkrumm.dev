@@ -32,14 +32,18 @@ body {
 	@apply font-sans antialiased;
 	@apply flex flex-col;
 	@apply bg-stone-100 dark:bg-stone-900;
-	@apply text-black/50 dark:text-white/75;
+
 	@apply text-sm;
+
+	@apply prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+	@apply prose-headings:font-semibold prose-p:font-serif;
+	@apply prose-headings:text-black/85 prose-headings:dark:text-white/85;
 }
 
 header {
 	@apply fixed left-0 right-0 top-0 z-50 py-5;
 	@apply bg-stone-100/75 dark:bg-stone-900/25;
-	@apply saturate-200 backdrop-blur-sm;
+	@apply backdrop-blur-sm;
 }
 
 main {
@@ -51,9 +55,6 @@ footer {
 }
 
 article {
-	@apply prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-	@apply prose-headings:font-semibold prose-p:font-serif;
-	@apply prose-headings:text-black prose-headings:dark:text-white;
 }
 
 @layer utilities {

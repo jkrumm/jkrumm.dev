@@ -1,0 +1,39 @@
+---
+import { JOBS } from '../constants'
+---
+
+<section>
+		<h1 class="animate">Experience</h1>
+		{JOBS.map(job => (
+			<div class="mt-12 grid grid-cols-5 gap-0">
+				<div class="col-span-1" />
+				<!-- Job Summary -->
+				<div class="animate col-span-4 pb-4 pl-8">
+					<h2 class="mb-1">{job.company}</h2>
+					<p>{job.location}</p>
+					<p class="mt-4">{job.description}
+					<p />
+				</div>
+				<!-- Job Positions -->
+				{job.positions.map((position, index) => (
+					<>
+						<div class="text-md col-span-1 pr-8 text-right">
+							<p class="animate my-[3px] text-black/60 dark:text-white/60">{position.duration}</p>
+						</div>
+						<div class="animate col-span-4 border-l border-black/10 dark:border-white/10 pl-8">
+							<div class="relative">
+								<div
+									class={`absolute left-[-44px] top-0 bg-stone-100 dark:bg-stone-900 p-1 pb-2 text-lg font-semibold`}>
+									<p class="m-0 text-black/50 dark:text-white/50">-></p>
+								</div>
+								<h3 class="mb-1">{position.title}</h3>
+								<p class="">{position.technologies.join(' | ')}</p>
+								<p
+									class={`mt-4 ${index !== job.positions.length - 1 ? '!mb-8' : '!mb-1'}`}>{position.description}</p>
+							</div>
+						</div>
+					</>
+				))}
+			</div>
+			))}
+			</section>
