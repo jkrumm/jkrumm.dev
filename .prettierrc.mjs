@@ -9,7 +9,7 @@ export default {
 	plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
 	tailwindStylesheet: './styles/root.css',
 	tailwindFunctions: ['clsx', 'tw'],
-	tailwindConfig: './tailwind.config.cjs',
+	tailwindConfig: './tailwind.config.mjs',
 	overrides: [
 		{
 			files: '*.astro',
