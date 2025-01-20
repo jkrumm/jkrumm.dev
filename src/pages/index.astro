@@ -1,32 +1,38 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro";
-import Container from "../components/Container.astro";
-import {HOME} from "../constants";
-import Link from "../components/Link.astro";
+import PageLayout from '../layouts/PageLayout.astro'
+import Container from '../components/Container.astro'
+import { HOME, SITE } from '../constants'
+import Link from '../components/Link.astro'
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-    <Container>
-        <h4 class="animate font-semibold text-black dark:text-white">
-            Hi, Johannes Krumm <span class="text-xl">👋🏻</span>
-        </h4>
-        <div class="space-y-16">
-            <section>
-                <article class="space-y-4">
-                    <p class="animate">
-                        Senior Fullstack Software Engineer
-                    </p>
-                    <p class="animate">
-                        <Link href="https://github.com/jkrumm" aria-label="Johannes Krumm on Github" external>
-                            Github
-                        </Link>
-                        <span> | </span>
-                        <Link href="https://www.linkedin.com/in/johannes-krumm/" aria-label="Johannes Krumm on LinkedIn" external>
-                            LinkedIn
-                        </Link>
-                    </p>
-                </article>
-            </section>
-        </div>
-    </Container>
+	<Container>
+		<h4 class="animate font-semibold text-black dark:text-white">
+			Hi, I'm Johannes Krumm <span class="text-xl">👋🏻</span>
+		</h4>
+		<div class="space-y-16">
+			<section>
+				<article class="space-y-4">
+					<p class="animate">Senior Fullstack Software Engineer and Tech Lead</p>
+					<p class="animate">
+						{SITE.AGE}yo from Munich, Germany. I like Software Architecture and coding in
+						TypeScript. Doing lots of sport and taking my dog along.
+					</p>
+					<p class="animate">
+						<Link href="https://github.com/jkrumm" aria-label="Johannes Krumm on Github" external>
+							Github
+						</Link>
+						<span> | </span>
+						<Link
+							href="https://www.linkedin.com/in/johannes-krumm/"
+							aria-label="Johannes Krumm on LinkedIn"
+							external
+						>
+							LinkedIn
+						</Link>
+					</p>
+				</article>
+			</section>
+		</div>
+	</Container>
 </PageLayout>
