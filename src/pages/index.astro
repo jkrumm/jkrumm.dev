@@ -7,16 +7,17 @@ import Link from '../components/Link.astro'
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
 	<Container>
-		<h4 class="animate font-semibold text-black dark:text-white">
+		<h1 class="animate text-black dark:text-white">
 			Hi, I'm Johannes Krumm <span class="text-xl">👋🏻</span>
-		</h4>
+		</h1>
 		<div class="space-y-16">
 			<section>
 				<article class="space-y-4">
-					<p class="animate">Senior Fullstack Software Engineer and Tech Lead</p>
-					<p class="animate">
-						{SITE.AGE}yo from Munich, Germany. I like Software Architecture and coding in
-						TypeScript. Doing lots of sport and taking my dog along.
+					<h4 class="animate">Senior Fullstack Software Engineer and Tech Lead</h4>
+					<p class="animate !mb-6">
+						{SITE.AGE}yo from Munich, Germany <span class="text-lg">🥨</span><br />Thinking about
+						Software Architecture and coding in TypeScript <span class="text-lg">🧑🏼‍💻‍</span><br
+						/>Doing lots of sport and taking my dog along <span class="text-lg">🐕</span>
 					</p>
 					<p class="animate">
 						<Link href="https://github.com/jkrumm" aria-label="Johannes Krumm on Github" external>
@@ -31,6 +32,86 @@ import Link from '../components/Link.astro'
 							LinkedIn
 						</Link>
 					</p>
+				</article>
+			</section>
+			<section>
+				<article>
+					<h1 class="animate">Experience</h1>
+					<div class="mt-7 grid grid-cols-5 gap-0">
+						<div class="col-span-1 pr-8 text-right"></div>
+
+						<div class="col-span-4 pb-2 pl-8">
+							<!--<div class="relative">-->
+							<!--	<div-->
+							<!--		class="absolute left-[-42.5px] top-[-32px] bg-stone-100 p-1 pt-8 text-xl font-semibold"-->
+							<!--	>-->
+							<!--		+-->
+							<!--	</div>-->
+							<h2 class="mb-1">IU - International University</h2>
+							<p>Munich, Germany</p>
+							<p>
+								With over 160.000 active students, the IU is the largest private university in
+								Europe. They transitioned to be a Tech Company to enable their exponential growth.
+								They have established an enterprise level software department and industry leading
+								software solutions.
+							</p>
+							<!--</div>-->
+						</div>
+
+						<div class="text-md col-span-1 pr-8 text-right">2022 - 2024</div>
+						<div class="col-span-4 border-l pl-8">
+							<div class="relative">
+								<div
+									class="absolute left-[-44px] top-[-5px] bg-stone-100 p-1 text-lg font-semibold"
+								>
+									->
+								</div>
+								<h3>Tech Lead</h3>
+								<p class="pb-2">
+									Let's make the necessary adjustments to your Tailwind CSS stepper component to
+									align everything in the 3/4 column, eliminate extra backgrounds and colors, and
+									ensure multiple connector circles are properly aligned between each job position.
+									Here's an updated version:
+								</p>
+							</div>
+						</div>
+
+						<div class="col-span-1 pr-8 text-right">2022 - 2024</div>
+						<div class="col-span-4 border-l pl-8">
+							<div class="relative">
+								<div
+									class="absolute left-[-44px] top-[-5px] bg-stone-100 p-1 text-lg font-semibold"
+								>
+									->
+								</div>
+								<h3>Senior Fullstack Software Engineer</h3>
+								<p class="pb-2">
+									Let's make the necessary adjustments to your Tailwind CSS stepper component to
+									align everything in the 3/4 column, eliminate extra backgrounds and colors, and
+									ensure multiple connector circles are properly aligned between each job position.
+									Here's an updated version:
+								</p>
+							</div>
+						</div>
+
+						<div class="col-span-1 pr-8 text-right">2022 - 2024</div>
+						<div class="col-span-4 border-l pl-8">
+							<div class="relative">
+								<div
+									class="absolute left-[-44px] top-[-5px] bg-stone-100 p-1 text-lg font-semibold"
+								>
+									->
+								</div>
+								<h3>Fullstack Software Engineer</h3>
+								<p class="m-1">
+									Let's make the necessary adjustments to your Tailwind CSS stepper component to
+									align everything in the 3/4 column, eliminate extra backgrounds and colors, and
+									ensure multiple connector circles are properly aligned between each job position.
+									Here's an updated version:
+								</p>
+							</div>
+						</div>
+					</div>
 				</article>
 			</section>
 		</div>
