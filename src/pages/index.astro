@@ -1,23 +1,32 @@
 ---
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import PageLayout from "../layouts/PageLayout.astro";
+import Container from "../components/Container.astro";
+import {HOME} from "../constants";
+import Link from "../components/Link.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>jkrumm.dev</title>
-	</head>
-
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<h1>jkrumm.dev</h1>
-		</div>
-	</body>
-</html>
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+    <Container>
+        <h4 class="animate font-semibold text-black dark:text-white">
+            Hi, Johannes Krumm <span class="text-xl">👋🏻</span>
+        </h4>
+        <div class="space-y-16">
+            <section>
+                <article class="space-y-4">
+                    <p class="animate">
+                        Senior Fullstack Software Engineer
+                    </p>
+                    <p class="animate">
+                        <Link href="https://github.com/jkrumm" aria-label="Johannes Krumm on Github" external>
+                            Github
+                        </Link>
+                        <span> | </span>
+                        <Link href="https://www.linkedin.com/in/johannes-krumm/" aria-label="Johannes Krumm on LinkedIn" external>
+                            LinkedIn
+                        </Link>
+                    </p>
+                </article>
+            </section>
+        </div>
+    </Container>
+</PageLayout>
