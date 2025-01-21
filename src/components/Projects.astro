@@ -1,0 +1,45 @@
+---
+import Link from './Link.astro'
+import { PROJECTS } from '../constants'
+---
+
+<section id="projects">
+	<h1 class="animate">Projects</h1>
+	<div class="animate mt-8 grid grid-cols-2 gap-6 md:mt-12 md:gap-12 md:px-8">
+		{
+			PROJECTS.map((project) => (
+				<div class={`col-span-${project.colSpan} border border-black/10 dark:border-white/10`}>
+					<div class="border-b border-black/10 object-cover dark:border-white/10">
+						<img src={project.image} alt={project.imageAlt} class="w-auto" />
+					</div>
+					<div class="p-3">
+						<Link href={project.url} external>
+							<h2 class="m-0">{project.title}</h2>
+						</Link>
+						<p>
+							{project.technologies.map((tech, index) => (
+								<>
+									{tech}
+									{index !== project.technologies.length - 1 && <span class="muted"> | </span>}
+								</>
+							))}
+						</p>
+						{project.technologiesTwo && (
+							<p>
+								{project.technologiesTwo.map((tech, index) => (
+									<>
+										{tech}
+										{index !== project.technologiesTwo?.length - 1 && (
+											<span class="muted"> | </span>
+										)}
+									</>
+								))}
+							</p>
+						)}
+						<p class="mb-0">{project.description}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>

@@ -1,11 +1,11 @@
 ---
-import { JOBS } from '../constants'
+import { EXPERIENCES } from '../constants'
 ---
 
 <section id="experience">
 	<h1 class="animate">Experience</h1>
-	{JOBS.map(job => (
-		<div class="mt-12 md:grid grid-cols-5 gap-0">
+	{EXPERIENCES.map(job => (
+		<div class="mt-8 md:mt-12 md:grid grid-cols-5 gap-0">
 			<div class="col-span-1" />
 			<!-- Job Summary -->
 			<div class="animate col-span-4 pb-4 md:pl-8">
@@ -27,7 +27,14 @@ import { JOBS } from '../constants'
 								<p class="m-0 text-black/50 dark:text-white/50">-></p>
 							</div>
 							<h3 class="mb-1">{position.title}</h3>
-							<p class="">{position.technologies.join(' | ')}</p>
+							<p>{
+								position.technologies.map((tech, index) => (
+									<>
+										{tech}
+										{index !== position.technologies.length - 1 && <span class="muted">|</span>}
+									</>
+								))
+							}</p>
 							<p
 								class={`mt-4 ${index !== job.positions.length - 1 ? '!mb-8' : '!mb-1'}`}>{position.description}</p>
 						</div>

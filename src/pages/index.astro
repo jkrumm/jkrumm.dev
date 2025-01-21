@@ -4,12 +4,14 @@ import Container from '../components/Container.astro'
 import { HOME } from '../constants'
 import Experience from '../components/Experience.astro'
 import Hero from '../components/Hero.astro'
+import Projects from '../components/Projects.astro'
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
 	<Container>
 		<div class="space-y-16">
 			<Hero />
+			<Projects />
 			<Experience />
 		</div>
 	</Container>

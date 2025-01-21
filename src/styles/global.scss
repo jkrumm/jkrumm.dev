@@ -112,6 +112,10 @@ h6 {
 
 p {
 	@apply text-sm;
+
+ span.muted {
+		@apply text-black/40 dark:text-white/40 w-[14px] text-center inline-block;
+	}
 }
 
 /**
