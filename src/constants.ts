@@ -26,23 +26,32 @@ export const HOME: Metadata = {
 	DESCRIPTION: 'Welcome to my personal website!'
 }
 
-export const PROJECTS: {
-	colSpan: number
-	title: string
-	image: {
-		src: string
-		alt: string
-		loading: 'lazy' | 'eager'
-		width: number
-		height: number
-	}
-	url: string
-	technologies: string[]
-	technologiesTwo?: string[]
-	description: string
-}[] = [
+export const PROJECTS: (
+	| {
+			size: 'large'
+			title: string
+			image: {
+				src: string
+				alt: string
+				loading: 'lazy' | 'eager'
+				width: number
+				height: number
+			}
+			url: string
+			technologies: string[]
+			technologiesTwo?: string[]
+			description: string
+	  }
+	| {
+			size: 'small'
+			title: string
+			url: string
+			technologies: string[]
+			description: string
+	  }
+)[] = [
 	{
-		colSpan: 2,
+		size: 'large',
 		title: 'Free-Planning-Poker.com',
 		image: {
 			src: 'https://raw.githubusercontent.com/jkrumm/planning-poker/master/public/recording.gif',
@@ -58,12 +67,12 @@ export const PROJECTS: {
 			'Free-Planning-Poker.com is a free online planning poker tool for distributed teams. It provides a simple and easy-to-use interface for estimating user stories.'
 	},
 	{
-		colSpan: 2,
+		size: 'large',
 		title: 'SnowFinder',
 		image: {
 			src: '/snow-finder.png',
 			alt: 'SnowFinder showcase',
-			loading: 'lazy',
+			loading: 'eager',
 			width: 662,
 			height: 442
 		},
@@ -71,6 +80,30 @@ export const PROJECTS: {
 		technologies: ['TypeScript', 'Bun', 'React', 'ChatGPT', 'Webscraping'],
 		description:
 			'SnowFinder is a chatbot that helps you find the best ski resorts for your next winter vacation. It uses ChatGPT to provide you with the best recommendations.'
+	},
+	{
+		size: 'small',
+		title: 'Anna Kowal Hautkonzept',
+		url: 'https://anna-kowal.de/',
+		technologies: ['Shopify', 'Liquid'],
+		description:
+			'A Shopify store for a beauty salon. It allows customers to book appointments and purchase beauty products.'
+	},
+	{
+		size: 'small',
+		title: 'Bitcoin Payment System',
+		url: 'https://github.com/jkrumm/btc-payment-system',
+		technologies: ['Java', 'Spring Boot', 'bitcoinj', 'SQL', 'React'],
+		description:
+			'An application that allows you to pay with Bitcoin. It generates a QR code with the payment information.'
+	},
+	{
+		size: 'small',
+		title: 'SY Serendipity',
+		url: 'https://sy-serendipity.org/',
+		technologies: ['Typescript', 'Gatsby', 'React'],
+		description:
+			'A blog about my sailing trip around the world. I share my experiences and adventures with the world.'
 	}
 ]
 

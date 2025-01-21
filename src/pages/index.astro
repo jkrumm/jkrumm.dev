@@ -9,10 +9,12 @@ import Projects from '../components/Projects.astro'
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
 	<Container>
-		<div class="space-y-16">
-			<Hero />
-			<Projects />
-			<Experience />
-		</div>
+		<Hero />
+	</Container>
+	<Container width="xl">
+		<Projects />
+	</Container>
+	<Container>
+		<Experience />
 	</Container>
 </PageLayout>
