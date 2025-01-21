@@ -29,8 +29,13 @@ export const HOME: Metadata = {
 export const PROJECTS: {
 	colSpan: number
 	title: string
-	image: string
-	imageAlt: string
+	image: {
+		src: string
+		alt: string
+		loading: 'lazy' | 'eager'
+		width: number
+		height: number
+	}
 	url: string
 	technologies: string[]
 	technologiesTwo?: string[]
@@ -39,8 +44,13 @@ export const PROJECTS: {
 	{
 		colSpan: 2,
 		title: 'Free-Planning-Poker.com',
-		image: 'https://raw.githubusercontent.com/jkrumm/planning-poker/master/public/recording.gif',
-		imageAlt: 'Free-Planning-Poker.com image',
+		image: {
+			src: 'https://raw.githubusercontent.com/jkrumm/planning-poker/master/public/recording.gif',
+			alt: 'Free-Planning-Poker.com showcase',
+			loading: 'eager',
+			width: 662,
+			height: 414
+		},
 		url: 'https://free-planning-poker.com?source=jkrumm.dev',
 		technologies: ['TypeScript', 'Next.js', 'ElysiaJS', 'Python', 'SQL', 'Websockets', 'SEO'],
 		technologiesTwo: ['Users: +3.300', 'Estimations: +16.000'],
@@ -50,8 +60,13 @@ export const PROJECTS: {
 	{
 		colSpan: 2,
 		title: 'SnowFinder',
-		image: '/snow-finder.png',
-		imageAlt: 'Elysia image',
+		image: {
+			src: '/snow-finder.png',
+			alt: 'SnowFinder showcase',
+			loading: 'lazy',
+			width: 662,
+			height: 442
+		},
 		url: 'https://snow-finder.jkrumm.dev',
 		technologies: ['TypeScript', 'Bun', 'React', 'ChatGPT', 'Webscraping'],
 		description:
@@ -76,7 +91,7 @@ export const EXPERIENCES: {
 		description: `
       With over 160,000 active students, the IU is the largest private university in Europe.
       They transitioned to be a tech company to enable their exponential growth.
-      They have established an enterprise-level software department and industry-leading software solutions and academic offerings.
+      They have established an enterprise-level software department and industry-leading software solutions.
     `,
 		positions: [
 			{
