@@ -1,20 +1,4 @@
-export const SITE = {
-	NAME: 'jkrumm.dev',
-	EMAIL: 'jkrumm@pm.me',
-	BIRTHDAY: new Date('1997-05-29'),
-	get AGE() {
-		const today = new Date()
-		let age = today.getFullYear() - this.BIRTHDAY.getFullYear()
-		const monthDifference = today.getMonth() - this.BIRTHDAY.getMonth()
-		if (
-			monthDifference < 0 ||
-			(monthDifference === 0 && today.getDate() < this.BIRTHDAY.getDate())
-		) {
-			age--
-		}
-		return age
-	}
-} as const
+import avatar from '../public/avatar.png'
 
 type Metadata = {
 	TITLE: string
@@ -25,6 +9,33 @@ export const HOME: Metadata = {
 	TITLE: 'Home',
 	DESCRIPTION: 'Welcome to my personal website!'
 }
+
+export const PERSON = {
+	name: 'Johannes Krumm',
+	email: 'jkrumm@pm.me',
+	url: 'jkrumm.dev',
+	birthDate: new Date('1997-05-29'),
+	image: `https://jkrumm.dev/${avatar.src}`,
+	socials: {
+		github: 'https://github.com/jkrumm',
+		linkedin: 'https://www.linkedin.com/in/johannes-krumm/'
+	},
+	work: {
+		title: 'Senior Fullstack Software Engineer and Tech Lead',
+		company: 'Grafana',
+		companyUrl: 'https://grafana.com'
+	},
+	age: (() => {
+		const today = new Date()
+		const birthDate = new Date('1997-05-29')
+		let age = today.getFullYear() - birthDate.getFullYear()
+		const monthDifference = today.getMonth() - birthDate.getMonth()
+		if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+			age--
+		}
+		return age
+	})()
+} as const
 
 export const PROJECTS: (
 	| {

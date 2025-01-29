@@ -1,7 +1,7 @@
 ---
 import Container from '@components/Container.astro'
 import Link from '@components/Link.astro'
-import { SITE } from '@constants'
+import { PERSON } from '../constants'
 ---
 
 <header>
@@ -9,7 +9,7 @@ import { SITE } from '@constants'
 		<div class="flex flex-wrap justify-between gap-y-2">
 			<Link href="/" underline={false}>
 				<div class="font-semibold">
-					{SITE.NAME}
+					{PERSON.url}
 				</div>
 			</Link>
 			<div class="flew-wrap flex justify-between gap-y-4">

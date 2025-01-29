@@ -1,10 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
+
 import PageLayout from '../layouts/PageLayout.astro'
 import Container from '../components/Container.astro'
 import { HOME } from '../constants'
 import Experience from '../components/Experience.astro'
 import Hero from '../components/Hero.astro'
 import Projects from '../components/Projects.astro'
+
+const allPosts = await getCollection('blog');
+
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
@@ -13,6 +18,9 @@ import Projects from '../components/Projects.astro'
 	</Container>
 	<Container width="xl">
 		<Projects />
+	</Container>
+	<Container>
+		{allPosts.map((post) => <a href={'/blog/' +post.slug}>{post.data.title}</a>)}
 	</Container>
 	<Container>
 		<Experience />

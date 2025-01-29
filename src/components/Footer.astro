@@ -1,7 +1,7 @@
 ---
 import Container from '@components/Container.astro'
-import { SITE } from '@constants'
 import BackToTop from '@components/BackToTop.astro'
+import { PERSON } from '@constants'
 
 const currentYear = new Date().getFullYear()
 ---
@@ -18,7 +18,7 @@ const currentYear = new Date().getFullYear()
 				<p>
 					&copy; {currentYear}
 					{`|`}
-					{SITE.NAME}
+					{PERSON.name}
 				</p>
 			</div>
 			<div class="mb-3">

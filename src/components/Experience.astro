@@ -13,7 +13,6 @@ import { EXPERIENCES } from '../constants'
 				<p class="mt-4">{job.description}
 				<p />
 			</div>
-			<!-- Job Positions -->
 			{job.positions.map((position, index) => (
 				<>
 					<div class="text-md col-span-1 pr-8 md:text-right">
@@ -22,7 +21,7 @@ import { EXPERIENCES } from '../constants'
 					<div class="animate col-span-4 border-l border-black/10 dark:border-white/10 pl-4 md:pl-8">
 						<div class="relative">
 							<div
-								class="hidden md:block absolute left-[-44px] top-0 bg-stone-200 dark:bg-stone-900 p-1 pb-2 text-lg font-semibold">
+								class="hidden md:block absolute left-[-44px] top-0 bg-stone-200 dark:bg-dark-7 p-1 pb-2 text-lg font-semibold">
 								<p class="m-0 text-black/50 dark:text-white/50">-></p>
 							</div>
 							<h3 class="mb-1">{position.title}</h3>
