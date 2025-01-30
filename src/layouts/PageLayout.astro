@@ -17,7 +17,7 @@ const { title, description } = Astro.props
 	<head>
 		<Head title={`${title} | ${PERSON.url}`} description={description} />
 	</head>
-	<body>
+	<body class="dark:prose-dark prose max-w-none">
 		<Header />
 		<main>
 			<slot />

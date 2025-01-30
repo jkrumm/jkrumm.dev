@@ -5,14 +5,15 @@ import Link from './Link.astro'
 
 <section>
 	<h1 class="animate text-black dark:text-white">
-		Hi, I'm {PERSON.name} <span class="inline-block w-20 text-center text-5xl">👋🏻</span>
+		Hi, I'm {PERSON.name}
+		<span class="inline-block w-20 text-center text-5xl">👋🏻</span>
 	</h1>
 	<h4 class="animate mb-4">{PERSON.work.title}</h4>
 	<div class="animate">
 		<p class="mb-6">
-			{PERSON.age}yo from Munich, Germany <span class="text-lg">🥨</span><br />Thinking about Software
-			Architecture and coding in TypeScript <span class="text-lg">🛠️‍</span><br />Doing lots of
-			sports and taking my dog along <span class="text-lg">🐕</span>
+			{PERSON.age}yo from Munich, Germany <span class="text-lg">🥨</span><br />Thinking about
+			Software Architecture and coding in TypeScript <span class="text-lg">🛠️‍</span><br />Doing
+			lots of sports and taking my dog along <span class="text-lg">🐕</span>
 		</p>
 		<p>
 			<Link href="https://github.com/jkrumm" aria-label="Johannes Krumm on Github" external>
