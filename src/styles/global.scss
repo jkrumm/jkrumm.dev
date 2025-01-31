@@ -9,6 +9,8 @@
 html {
 	overflow-y: scroll;
 	color-scheme: light;
+	scroll-behavior: smooth;
+	@apply overflow-y-scroll;
 
 	&.dark {
 		color-scheme: dark;
@@ -29,15 +31,10 @@ body {
 }
 
 body {
-	@apply font-sans antialiased;
 	@apply flex flex-col;
 	@apply bg-stone-200 dark:bg-dark-7;
-
-	@apply text-sm/relaxed;
-
-	@apply prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-	@apply prose-headings:font-semibold prose-p:font-serif;
-	@apply prose-headings:text-black/85 prose-headings:dark:text-white/85;
+	@apply font-inter antialiased;
+	@apply dark:prose-dark prose max-w-full dark:prose-invert;
 }
 
 header {
@@ -55,8 +52,7 @@ footer {
 }
 
 section {
-	@apply py-16;
-	margin: 0 !important;
+	@apply m-0 py-16;
 }
 
 article {
@@ -73,54 +69,30 @@ article {
 		@apply text-black dark:text-white;
 		@apply decoration-black/25 dark:decoration-white/50;
 	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* For Firefox */
+	.scrollbar-hide {
+		scrollbar-width: none;
+	}
 }
 
 /**
  * Typography
  */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@apply m-0 font-semibold;
-}
-
-h1 {
-	@apply mb-7 text-3xl;
-}
-
-h2 {
-	@apply mb-4 text-2xl;
-}
-
-h3 {
-	@apply mb-2 text-xl;
-}
-
-h4 {
-	@apply mb-1 text-lg;
-}
-
-h4,
-h5,
-h6 {
-	@apply font-serif;
-}
-
 p {
-	@apply text-sm/relaxed;
 	span.muted {
-		@apply inline-block w-[14px] text-center text-black/40 dark:text-white/40;
+		@apply inline-block w-[14px] text-center text-stone-600/30 dark:text-stone-400/30;
 	}
 }
 
 /**
  * Animations
  */
-
 .animate {
 	@apply translate-y-3 opacity-0;
 	@apply transition-all duration-700 ease-out;
@@ -128,4 +100,8 @@ p {
 	&.show {
 		@apply translate-y-0 opacity-100;
 	}
+}
+
+::selection {
+	@apply bg-stone-200 dark:bg-dark-6;
 }

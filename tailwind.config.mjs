@@ -7,8 +7,17 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter', ...defaultTheme.fontFamily.sans],
-				serif: ['JetBrains Mono', ...defaultTheme.fontFamily.serif]
+				inter: ['Inter', ...defaultTheme.fontFamily.sans],
+				manrope: ['Manrope', ...defaultTheme.fontFamily.sans],
+				mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
+			},
+			fontSize: {
+				'heading-1': ['2.75rem', { lineHeight: '1.2' }], // ~44px
+				'heading-2': ['2.25rem', { lineHeight: '1.2' }], // ~36px
+				'heading-3': ['1.75rem', { lineHeight: '1.2' }], // ~28px
+				'heading-4': ['1.5rem', { lineHeight: '1.3' }], // ~24px
+				'heading-5': ['1.25rem', { lineHeight: '1.4' }], // ~20px
+				'heading-6': ['1.125rem', { lineHeight: '1.4' }] // ~18px
 			},
 			colors: {
 				dark: {
@@ -24,18 +33,94 @@ module.exports = {
 					9: '#141414'
 				}
 			},
-			typography: (theme) => ({
+			typography: ({ theme }) => ({
 				DEFAULT: {
 					css: {
-						color: theme('colors.dark.7')
+						color: theme('colors.stone.600'),
+						fontSize: '1.0625rem', // ~17px
+						lineHeight: '1.65',
+						maxWidth: 'none',
+
+						'--heading-font-family': theme('fontFamily.manrope').join(', '),
+						'--heading-tracking': '-0.02em',
+						'--small-heading-font-family': theme('fontFamily.inter').join(', '),
+						'--small-heading-font-weight': '600',
+
+						'h1, h2, h3, h4, h5, h6': {
+							color: theme('colors.stone.700'),
+							fontWeight: 'var(--small-heading-font-weight)'
+						},
+						'h1, h2, h3, h4': {
+							fontFamily: 'var(--heading-font-family)',
+							letterSpacing: 'var(--heading-tracking)'
+						},
+						'h5, h6': {
+							fontFamily: 'var(--small-heading-font-family)'
+						},
+
+						// Apply custom heading sizes
+						h1: { fontSize: theme('fontSize.heading-1[0]') },
+						h2: { fontSize: theme('fontSize.heading-2[0]') },
+						h3: { fontSize: theme('fontSize.heading-3[0]') },
+						h4: { fontSize: theme('fontSize.heading-4[0]') },
+						h5: { fontSize: theme('fontSize.heading-5[0]') },
+						h6: { fontSize: theme('fontSize.heading-6[0]') },
+
+						// Spacing after headings
+						'h1, h2': { marginBottom: '1.5em' },
+						'h3, h4': { marginBottom: '1.2em' },
+						'h5, h6': { marginBottom: '1em' },
+
+						// Link styles
+						a: {
+							fontFamily: theme('fontFamily.inter').join(', '),
+							textDecorationLine: 'underline',
+							textUnderlineOffset: '2px',
+							textDecorationColor: 'rgb(0 0 0 / 0.15)',
+							transition: 'all 300ms ease-in-out',
+							'&:hover': {
+								color: 'rgb(0 0 0 / 1)',
+								textDecorationColor: 'rgb(0 0 0 / 0.25)'
+							}
+						},
+
+						// Improve table styling
+						table: {
+							fontSize: '0.9375rem' // Slightly smaller than body text
+						},
+
+						// Better list spacing
+						'ul, ol': {
+							paddingLeft: '1.5em',
+							marginTop: '0.75em',
+							marginBottom: '0.75em'
+						},
+
+						// Better blockquote styling
+						blockquote: {
+							fontStyle: 'normal',
+							borderLeftColor: theme('colors.stone.300')
+						}
 					}
 				},
 				dark: {
-					css: [
-						{
+					css: {
+						color: theme('colors.stone.400'),
+						'h1, h2, h3, h4, h5, h6': {
 							color: theme('colors.stone.300')
+						},
+						a: {
+							color: theme('colors.stone.300'),
+							textDecorationColor: 'rgb(255 255 255 / 0.3)',
+							'&:hover': {
+								color: 'rgb(255 255 255 / 1)',
+								textDecorationColor: 'rgb(255 255 255 / 0.5)'
+							}
+						},
+						blockquote: {
+							borderLeftColor: theme('colors.dark.4')
 						}
-					]
+					}
 				}
 			})
 		}
