@@ -122,6 +122,8 @@ export const EXPERIENCES: {
 	company: string
 	location: string
 	description: string
+	from: string
+	to: string
 	positions: {
 		title: string
 		duration: string
@@ -131,6 +133,8 @@ export const EXPERIENCES: {
 }[] = [
 	{
 		company: 'IU - International University',
+		from: '2020',
+		to: 'Now',
 		location: 'Munich, Germany',
 		description: `
       With over 160,000 active students, the IU is the largest private university in Europe.
@@ -171,6 +175,8 @@ export const EXPERIENCES: {
 	{
 		company: 'SquareTrade',
 		location: 'San Francisco, USA',
+		from: '2018',
+		to: '2020',
 		description: `
       With over 160,000 active students, the IU is the largest private university in Europe.
       They transitioned to be a tech company to enable their exponential growth.

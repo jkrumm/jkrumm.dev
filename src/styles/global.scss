@@ -34,7 +34,7 @@ body {
 	@apply flex flex-col;
 	@apply bg-stone-200 dark:bg-dark-7;
 	@apply font-inter antialiased;
-	@apply dark:prose-dark prose max-w-full dark:prose-invert;
+	@apply prose max-w-full dark:prose-invert dark:prose-dark;
 }
 
 header {
@@ -55,21 +55,7 @@ section {
 	@apply m-0 py-16;
 }
 
-article {
-}
-
 @layer utilities {
-	article a {
-		@apply font-sans text-current underline underline-offset-2;
-		@apply decoration-black/15 dark:decoration-white/30;
-		@apply transition-colors duration-300 ease-in-out;
-	}
-
-	article a:hover {
-		@apply text-black dark:text-white;
-		@apply decoration-black/25 dark:decoration-white/50;
-	}
-
 	.scrollbar-hide::-webkit-scrollbar {
 		display: none;
 	}

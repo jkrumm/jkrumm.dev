@@ -5,12 +5,11 @@ import { EXPERIENCES } from '../constants'
 <section id="experience">
 	{EXPERIENCES.map(job => (
 		<div class="mt-8 md:mt-12 md:grid grid-cols-5 gap-0">
-			<div class="col-span-1" />
-			<!-- Job Summary -->
-			<div class="animate col-span-4 pb-4 md:pl-8">
+		<div class="col-span-0"/>
+			<div class="animate col-span-5 pb-5 pl-0">
 				<h2 class="mb-1">{job.company}</h2>
-				<p>{job.location}</p>
-				<p class="mt-4">{job.description}
+				<p class="mt-0 mb-2">{job.from} - {job.to} <span class="muted">|</span> {job.location}</p>
+				<p class="mt-0">{job.description}
 				<p />
 			</div>
 			{job.positions.map((position, index) => (
@@ -19,13 +18,13 @@ import { EXPERIENCES } from '../constants'
 						<p class="animate my-[3px] text-black/60 dark:text-white/60">{position.duration}</p>
 					</div>
 					<div class="animate col-span-4 border-l border-black/10 dark:border-white/10 pl-4 md:pl-8">
-						<div class="relative">
+						<div class="relative top-[-6px]">
 							<div
-								class="hidden md:block absolute left-[-44px] top-0 bg-stone-200 dark:bg-dark-7 p-1 pb-2 text-lg font-semibold">
+								class="hidden md:block absolute left-[-44px] top-1 bg-stone-200 dark:bg-dark-7 p-1 pb-2 text-lg font-semibold">
 								<p class="m-0 text-black/50 dark:text-white/50">-></p>
 							</div>
-							<h3 class="mb-1">{position.title}</h3>
-							<p>{
+							<h3 class="m-0">{position.title}</h3>
+							<p class="mt-0 mb-2">{
 								position.technologies.map((tech, index) => (
 									<>
 										{tech}
@@ -34,7 +33,7 @@ import { EXPERIENCES } from '../constants'
 								))
 							}</p>
 							<p
-								class={`mt-4 ${index !== job.positions.length - 1 ? '!mb-8' : '!mb-1'}`}>{position.description}</p>
+								class={`mt-0 ${index !== job.positions.length - 1 ? '!mb-8' : '!mb-1'}`}>{position.description}</p>
 						</div>
 					</div>
 				</>

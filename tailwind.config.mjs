@@ -20,6 +20,9 @@ module.exports = {
 				'heading-6': ['1.125rem', { lineHeight: '1.4' }] // ~18px
 			},
 			colors: {
+				stone: {
+					350: 'oklch(0.789 0.0075 56.313)'
+				},
 				dark: {
 					0: '#C9C9C9',
 					1: '#b8b8b8',
@@ -42,11 +45,12 @@ module.exports = {
 						maxWidth: 'none',
 
 						'--heading-font-family': theme('fontFamily.manrope').join(', '),
-						'--heading-tracking': '-0.02em',
+						'--heading-tracking': '-0.01em',
 						'--small-heading-font-family': theme('fontFamily.inter').join(', '),
 						'--small-heading-font-weight': '600',
 
 						'h1, h2, h3, h4, h5, h6': {
+							margin: '0',
 							color: theme('colors.stone.700'),
 							fontWeight: 'var(--small-heading-font-weight)'
 						},
@@ -105,7 +109,7 @@ module.exports = {
 				},
 				dark: {
 					css: {
-						color: theme('colors.stone.400'),
+						color: theme('colors.stone.350'),
 						'h1, h2, h3, h4, h5, h6': {
 							color: theme('colors.stone.300')
 						},
