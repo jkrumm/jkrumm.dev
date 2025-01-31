@@ -1,70 +1,96 @@
 ---
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import PageLayout from '@layouts/PageLayout.astro';
-import { getArticleSchema } from '../../structuredData';
-import { blogWebsite } from '../../structuredData';
-import { PERSON } from '@constants';
- 
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import PageLayout from '@layouts/PageLayout.astro'
+import { getArticleSchema } from '../../structuredData'
+import { blogWebsite } from '../../structuredData'
+import { PERSON } from '@constants'
+import Container from '@components/Container.astro'
+import Link from '@components/Link.astro'
+
 interface Props {
-  post: CollectionEntry<'blog'>;
+	post: CollectionEntry<'blog'>
 }
- 
+
 export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog');
-  return blogPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+	const blogPosts = await getCollection('blog')
+	return blogPosts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post }
+	}))
 }
-const { post } = Astro.props;
-const { Content } = await post.render();
+const { post } = Astro.props
+const { Content } = await post.render()
 
-const articleStructuredData = getArticleSchema(post);
- 
+const articleStructuredData = getArticleSchema(post)
+
 const breadcrumbsStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Blog',
-      item: `${PERSON.url}/blog/`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: post.data.title,
-      item: `${PERSON.url}/blog/${post.slug}/`,
-    },
-  ],
-};
- 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [articleStructuredData, breadcrumbsStructuredData, blogWebsite],
-};
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{
+			'@type': 'ListItem',
+			position: 1,
+			name: 'Blog',
+			item: `${PERSON.url}/blog/`
+		},
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: post.data.title,
+			item: `${PERSON.url}/blog/${post.slug}/`
+		}
+	]
+}
 
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [articleStructuredData, breadcrumbsStructuredData, blogWebsite]
+}
 ---
- 
+
 <PageLayout title={post.data.title} description={post.data.excerpt}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <div>
-    <article class="prose dark:prose-invert">
-      <Image
-        src={post.data.cover}
-        alt={post.data.title}
-        class="object-cover object-center !m-0 aspect-square block"
-        width={600}
-        height={600}
-      />
-      <h1 class="md:!text-5xl md:!leading-[1.2]">{post.data.title}</h1>
-      <p class="lead">{post.data.excerpt}</p>
-      <div>
-        <Content />
-      </div>
-    </article>
-  </div>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+	<Container>
+		<article>
+			<Image
+				src={post.data.cover}
+				alt={post.data.title}
+				class="!m-0 block object-cover object-center"
+				width={post.data.cover.width}
+				height={post.data.cover.height}
+			/>
+			<div class="flex flex-wrap justify-between text-sm text-stone-600 dark:text-stone-400">
+				<p>
+					{
+						post.data.date.toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric'
+						})
+					}
+					from {PERSON.name}
+				</p>
+				<div>
+					{
+						post.data.tags.map((tag, index) => (
+							<>
+								<Link href={`/blog/tags/${tag}`} class="mt-4">
+									{tag}
+								</Link>
+								{index !== post.data.tags.length - 1 && <span class="muted">|</span>}
+							</>
+						))
+					}
+				</div>
+			</div>
+			<h1 class="mb-0 mt-3 md:!text-5xl md:!leading-[1.2]">{post.data.title}</h1>
+			<p class="lead">{post.data.excerpt}</p>
+			<hr />
+			<div>
+				<Content />
+			</div>
+		</article>
+	</Container>
 </PageLayout>

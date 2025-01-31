@@ -71,7 +71,8 @@ section {
  */
 
 p {
-	span.muted {
+	span.muted,
+	&.muted {
 		@apply inline-block w-[14px] text-center text-stone-600/30 dark:text-stone-400/30;
 	}
 }

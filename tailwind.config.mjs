@@ -61,21 +61,15 @@ module.exports = {
 						'h5, h6': {
 							fontFamily: 'var(--small-heading-font-family)'
 						},
-
-						// Apply custom heading sizes
 						h1: { fontSize: theme('fontSize.heading-1[0]') },
 						h2: { fontSize: theme('fontSize.heading-2[0]') },
 						h3: { fontSize: theme('fontSize.heading-3[0]') },
 						h4: { fontSize: theme('fontSize.heading-4[0]') },
 						h5: { fontSize: theme('fontSize.heading-5[0]') },
 						h6: { fontSize: theme('fontSize.heading-6[0]') },
-
-						// Spacing after headings
 						'h1, h2': { marginBottom: '1.5em' },
 						'h3, h4': { marginBottom: '1.2em' },
 						'h5, h6': { marginBottom: '1em' },
-
-						// Link styles
 						a: {
 							fontFamily: theme('fontFamily.inter').join(', '),
 							textDecorationLine: 'underline',
@@ -87,23 +81,23 @@ module.exports = {
 								textDecorationColor: 'rgb(0 0 0 / 0.25)'
 							}
 						},
-
-						// Improve table styling
 						table: {
 							fontSize: '0.9375rem' // Slightly smaller than body text
 						},
-
-						// Better list spacing
 						'ul, ol': {
 							paddingLeft: '1.5em',
 							marginTop: '0.75em',
 							marginBottom: '0.75em'
 						},
-
-						// Better blockquote styling
 						blockquote: {
 							fontStyle: 'normal',
 							borderLeftColor: theme('colors.stone.300')
+						},
+						lead: {
+							color: theme('colors.stone.600')
+						},
+						hr: {
+							borderColor: theme('colors.stone.400')
 						}
 					}
 				},
@@ -123,6 +117,12 @@ module.exports = {
 						},
 						blockquote: {
 							borderLeftColor: theme('colors.dark.4')
+						},
+						lead: {
+							color: theme('colors.stone.300')
+						},
+						hr: {
+							borderColor: theme('colors.stone.600')
 						}
 					}
 				}
